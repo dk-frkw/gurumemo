@@ -20,7 +20,7 @@
 | station           | string       | null: false                    |
 | phone_number      | integer      |                                |
 | holiday           | string       |                                |
-| memo              | text         | null: false                    |
+| memo              | text         |                                |
 | latitude          | float        |                                |
 | longitude         | text         |                                |
 | user              | references   | null: false, foreign_key: true |
