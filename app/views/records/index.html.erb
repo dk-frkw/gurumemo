@@ -2,15 +2,25 @@
   <div class="inner">
     <%# ログインしているときは以下を表示%>
     <% if user_signed_in? %>
-      <div class="greeting">
-          <%= link_to current_user.user_name + "さん", root_path, class: :greeting__link%>
+      <div class="gurumemo-login">
+          こんにちは
+          <%= link_to current_user.user_name + "さん", root_path, class: :gurumemo__link%>
       </div>
+    <%# 投稿がある場合は以下も表示%>
+      <div class="card__wrapper">
+        <%# 投稿機能実装後、部分テンプレートでプロトタイプ投稿一覧を表示する %>
+        <%= render partial: "record", collection: @records %>
+    </div>
+    <%# ログインしていない時は以下を表示%>
+    <% else %>
+        <div class="gurumemo-logout">
+          <h2 class="gurumemo-top">
+          行ったお店や行きたいお店を記録しよう♫
+          </h2>
+          <%= image_tag "gurumemo-top.png" %>
+          <p class="gurumemo-top-bottom">
+          新規登録、ログインは右上のリンクから
+          </p>
     <% end %>
-
-    <div class="card__wrapper">
-      <%# 投稿機能実装後、部分テンプレートでプロトタイプ投稿一覧を表示する %>
-      <%= render partial: "record", collection: @record %>
   </div>
 </main>
-
-
