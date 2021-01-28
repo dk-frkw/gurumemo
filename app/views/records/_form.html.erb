@@ -1,24 +1,48 @@
 <h3>お店の情報を入力</h3>
-<%= form_with(model: record, local: true) do |f|%>
+<%= form_with(model: @record, local: true) do |f|%>
 <%# 店名 %>
   <div class="field">
     <span class="required">必須</span>
     <%= f.label :store_name, "店名" %><br />
-    <%= f.text_field :title %>
+    <%= f.text_field :store_name %>
   </div>
 
   <div class="field">
-    <%#= f.collection_select(:hoge, "#", :id, :name, {}, class:"select-box") %> 
+    <span class="required">必須</span>
+    <%= f.label :genre_id, "ジャンル" %><br />
+    <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, class:"genre-select") %> 
   </div>
 
   <div class="field">
-    <%= f.label :concept, "コンセプト" %><br />
-    <%= f.text_area :concept, class: :form__text %>
-  </div>
-
-  <div class="field">
-    <%= f.label :image, "写真" %><br />
+    <span class="required">必須</span>
+    <%= f.label :image, "写真（料理や店舗など）" %><br />
     <%= f.file_field :image %>
+  </div>
+
+   <div class="field">
+    <span class="required">必須</span>
+    <%= f.label :station, "最寄駅" %><br />
+    <%= f.text_field :station, class:"form__text", placeholder:"例）博多" %>
+  </div>
+
+   <div class="field">
+    <%= f.label :address, "住所" %><br />
+    <%= f.text_field :address, class:"form__text", placeholder:"例）福岡市中央区博多1-1-1" %>
+  </div>
+
+   <div class="field">
+    <%= f.label :phone_number, "電話番号" %><br />
+    <%= f.text_field :phone_number, class:"form__text", placeholder:"例）09012345678", maxlength:"11" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :holiday, "休日" %><br />
+    <%= f.text_field :holiday, class:"form__text", placeholder:"例）月曜日" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :memo, "メモ欄" %><br />
+    <%= f.text_area :memo, class:"form__text",placeholder:"例）誕生日のサプライズをやってくれた" %>
   </div>
 
   <div class="actions">
