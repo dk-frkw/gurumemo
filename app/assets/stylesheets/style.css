@@ -179,6 +179,7 @@ card {
 .card__title {
   display: block;
   font-size: 20px;
+  margin-top: 8px;
   margin-bottom: 8px;
   font-weight: bold;
 }
@@ -203,7 +204,53 @@ card {
   margin-top: 5px;
 }
 
+/* 詳細ページ */
+.record__wrapper{
+  min-height: calc(100vh - 161px);
+}
 
+.record__hedding{
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.record__manage{
+  display: flex;
+  justify-content: center;
+  padding-top: 16px;
+}
+
+.record__image{
+  width: 40%;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.record__detail{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.detail__title{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.record__btn{
+  display: block;
+  padding: 0.4em 1.6em;
+  font-size: 0.8em;
+  color: rgb(247, 163, 7);
+  text-decoration: none;
+  user-select: none;
+  border: 1px black solid;
+  border-radius: 3px;
+  transition: 0.4s ease;
+  margin: 0 4px;
+}
 
 /* タブレット対応 */
 @media (max-width: 1024px) {
@@ -218,7 +265,7 @@ card {
     width: 48%;
     margin-bottom: 40px;
   }
-  .prototype_image{
+  .record_image{
     width: 60%;
   }
 }
@@ -241,10 +288,24 @@ card {
   .card__summary {
     font-size: 14px;
   }
-  .prototype_image{
+  .record_image{
     width: 100%;
   }
   .table{
     width: 100%;
   }
+}
+
+/* エラ〜メッセージ */
+
+.error-alert {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5vh;
+}
+
+.error-message {
+  font-size: 2vw;
+  list-style: circle;
+  color: red;
 }

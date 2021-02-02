@@ -1,8 +1,8 @@
 <% if user_signed_in? && current_user.id == record.user.id %>
 <div class="card">
-   <%= image_tag record.image %>
+   <%= link_to image_tag(record.image, class: :card__img ), record_path(record.id) %>
   <div class="card__body">
-    <%= link_to record.store_name , root_path, class: :card__title %>
+    <%= link_to record.store_name , record_path(record.id), class: :card__title %>
     <p class="card__summary">
       ジャンル  <%= record.genre[:name] %>
     </p>

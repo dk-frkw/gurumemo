@@ -1,8 +1,10 @@
 class Record < ApplicationRecord
-
-  validates :store_name, presence: true
-  validates :station, presence: true
-  validates :image, presence: true
+  
+  with_options presence: true do
+    validates :store_name
+    validates :image
+    validates :station
+  end
 
   validates :genre_id, numericality: { other_than: 1 } 
   validates :phone_number, length: { maximum: 11 }
