@@ -16,6 +16,32 @@ class RecordsController < ApplicationController
     end
   end
 
+  def show
+    @record = Record.find(params[:id])
+  end
+
+  def edit
+    @record = Record.find(params[:id])
+    unless current_user.id == @record.user_id
+      redirect_to action: :index
+    end
+  end
+
+  def update
+    @record = Record.find(params[:id])
+    if @record.update(record_params)
+      redirect_to record_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    record = Record.find(params[:id])
+    record.destroy
+    redirect_to root_path
+  end
+
   private
 
   def record_params

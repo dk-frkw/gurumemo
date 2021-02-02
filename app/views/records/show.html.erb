@@ -1,0 +1,48 @@
+<main class="main">
+  <div class="inner">
+    <div class="record__wrapper">
+      <p class="record__hedding">
+        <%= @record.store_name %>
+      </p>
+      <%= @record.user[:name] %>
+      <%# 投稿者とログインしているユーザーが同じであれば以下を表示する %>
+      <% if user_signed_in? && current_user.id == @record.user_id %>
+        <div class="record__manage">
+          <%= link_to "編集する", edit_record_path, class: :record__btn %>
+          <%= link_to "削除する", record_path, class: :record__btn, method: :delete %>
+        </div>
+      <% end %>
+      <%# 投稿者とログインしているユーザーが同じであれば上記を表示する %>
+<%# 投稿内容 %>
+        <div class="record__image">
+          <%= image_tag @record.image %>
+        </div>
+        <div class ="record__body">
+          <div class="record__detail">
+          <p class="detail__title">ジャンル</p>
+            <%= @record.genre[:name] %>
+          </div>
+          <div class="record__detail">
+          <p class="detail__title">最寄駅</p>
+            <%= @record.station %>
+          </div>
+          <div class="record__detail">
+          <p class="detail__title">住所</p>
+            <%= @record.address %>
+          </div>
+          <div class="record__detail">
+          <p class="detail__title">電話番号</p>
+            <%= @record.phone_number %>
+          </div>
+          <div class="record__detail">
+          <p class="detail__title">休日</p>
+            <%= @record.holiday %>
+          </div>
+          <div class="record__detail">
+          <p class="detail__title">メモ欄</p>
+            <%= @record.memo %>
+          </div>
+        </div>
+    </div>
+  </div>
+</main>

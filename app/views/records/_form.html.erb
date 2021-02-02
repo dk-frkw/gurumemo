@@ -1,5 +1,6 @@
 <h3>お店の情報を入力</h3>
 <%= form_with(model: @record, local: true) do |f|%>
+  <%= render 'layouts/error_messages', model: f.object %>
 <%# 店名 %>
   <div class="field">
     <span class="required">必須</span>
