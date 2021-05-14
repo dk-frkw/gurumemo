@@ -61,5 +61,3 @@ URL https://gurumemo-app.herokuapp.com/
 
 ### Association
 - belongs_to user
-
-ローカルでの動作方法
